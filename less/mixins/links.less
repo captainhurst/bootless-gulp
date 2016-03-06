@@ -1,0 +1,33 @@
+// Link variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.link-variant(@color) {
+  color: @color;
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active{
+    color: darken(@color, 5%);
+  }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      color: @color;
+    }
+  }
+}
+
